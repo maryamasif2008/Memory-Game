@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* background-color: #1d1f; */
+    background-image: url("https://img.freepik.com/premium-photo/abstract-background-design-images-wallpaper-ai-generated_643360-75928.jpg");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+    box-shadow: 2px 2px 9px 7px gray;
+    border-radius: 10px;
+    padding: 40px 20px;
+}
+h2 {
+    color: rgb(17, 35, 92);
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+.reset {
+    margin-top: 40px;
+    padding: 10px 20px;
+    background-color:  rgb(17, 35, 92);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+.reset:hover {
+    background-color: orange;
+    color: #fff;
+}
+.game {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 10px;
+}
+.item {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color:  rgb(17, 35, 92);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    border-radius: 10px;
+    cursor: pointer;
+    transform: rotateY(180deg);
+    transition: transform 0.3s;
+}
+.item.open {
+    transform: rotateY(0deg);
+    background-color: white;
+}
+.item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: ;
+    border-radius: 10px;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    transition: transform 0.3s;
+}
+.item.open::after {
+    transform: rotateY(0deg);
+}
+.item.matched {
+    background-color:  orange;
+    color: white;
+    pointer-events: none;
+}
+.item.matched::after {
+    background-color: orange;
+}
+@media (max-width: 320px) {
+    h2 {
+        font-size: 1.8em; /* Smaller heading */
+    }
+    .reset {
+        padding: 8px 16px;
+        font-size: 1em; /* Adjust button size */
+    }
+    .game {
+        grid-template-columns: repeat(4, 70px); /* Make the cards smaller */
+        gap: 8px; /* Reduce the gap between cards */
+    }
+    .item {
+        width: 70px;
+        height: 70px;
+        font-size: 2em; /* Reduce emoji size */
+    }
+    .item::after {
+        border-radius: 8px; /* Slightly reduce border radius */
+    }
+}
+/* For screens up to 375px (common smartphone width) */
+@media (max-width: 375px) {
+    h2 {
+        font-size: 2.2em;
+    }
+    .reset {
+        padding: 10px 18px;
+        font-size: 1.1em;
+    }
+    .game {
+        grid-template-columns: repeat(4, 80px); /* Slightly larger cards */
+        gap: 8px;
+    }
+    .item {
+        width: 80px;
+        height: 80px;
+        font-size: 2.2em;
+    }
+    .item::after {
+        border-radius: 8px;
+    }
+}
+/* For medium screens like small tablets (e.g. 768px) */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2.2em; /* Adjust font size */
+    }
+    .reset {
+        padding: 10px 20px;
+        font-size: 1.2em;
+    }
+    .game {
+        grid-template-columns: repeat(4, 90px); /* Medium-sized cards */
+        gap: 10px;
+    }
+    .item {
+        width: 90px;
+        height: 90px;
+        font-size: 2.2em; /* Adjust emoji size */
+    }
+    .item::after {
+        border-radius: 10px;
+    }
+}
+/* For larger tablets (e.g. 1024px) */
+@media (max-width: 1024px) {
+    h2 {
+        font-size: 2.5em;
+    }
+    .reset {
+        padding: 12px 20px;
+        font-size: 1.3em;
+    }
+    .game {
+        grid-template-columns: repeat(4, 100px); /* Default card size */
+        gap: 12px;
+    }
+    .item {
+        width: 100px;
+        height: 100px;
+        font-size: 2.5em;
+    }
+    .item::after {
+        border-radius: 10px;
+    }
+}
+/* For larger screens (desktops) */
+@media (min-width: 1025px) {
+    .game {
+        grid-template-columns: repeat(4, 120px); /* Bigger cards for desktops */
+        gap: 15px;
+    }
+    .item {
+        width: 120px;
+        height: 120px;
+        font-size: 3em; /* Larger emoji size */
+    }
+}
